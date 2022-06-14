@@ -1,0 +1,697 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="download_data_from_cclaim" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="398,3598" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="download-data-from-cclaim" sap:VirtualizedContainerService.HintSize="380,5302" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="cc_startDate" />
+      <Variable x:TypeArguments="x:Int32" Name="cc_dayInMonth" />
+      <Variable x:TypeArguments="x:String" Name="cc_toDate" />
+      <Variable x:TypeArguments="x:String" Name="cc_pathFile" />
+      <Variable x:TypeArguments="x:String" Name="str_getTextFileName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[cc_pathFile]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">C:\Users\Administrator\Documents\UiPath\0065-Filetest\</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[cc_startDate]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">01/01/2021</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[cc_dayInMonth]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[System.DateTime.DaysInMonth(Now.Year,Now.Month)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[cc_toDate]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[cc_dayInMonth.ToString+"/"+Now.Month.ToString+"/"+Now.Year.ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;___start date = &quot;+cc_startDate+&quot; to date = &quot;+cc_toDate+&quot;___&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="roof-and-cw-procuct(TSS)" sap:VirtualizedContainerService.HintSize="336,2669" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;&gt;&gt;&gt; Start Export roof-and-cw-procuct(TSS) for access db 1&quot;]" />
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="300" DelayBefore="300" DisplayName="Select Item roof-and-cw-procuct(TSS)" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="1. Roof And CW Product (TSS)        ">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="8">
+                  <x:String>1. Roof And CW Product (TSS)        </x:String>
+                  <x:String>2. Roof service VOC (RSS)        </x:String>
+                  <x:String>3. Landscape Product &amp; Service        </x:String>
+                  <x:String>4. Internal Feedback (RSS)        </x:String>
+                  <x:String>6. Inter Business        </x:String>
+                  <x:String>7. SFCG VOC        </x:String>
+                  <x:String>8. Service and Solution (Roof)        </x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="44d2cc8f5c3830f3ebedde88720dd329" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl tag='SELECT' tableCol='1' tableRow='1' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="300" DisplayName="Click Display" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="713f3ec756acd3e47d405753bf64a0f2" Selector="&lt;html app='chrome.exe' title='CClaim v2.0' /&gt;&lt;webctrl parentid='cDPCenterBottom' tag='A' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="300" DisplayName="Click ExportMain" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e5bf9d927125dac6eef3d45cf190841c" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='แสดงผลตาราง' tag='A' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item SELECT" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="F0013 - (วันที่)วันที่เปิดข้อร้องเรียน        ">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>-- select field --</x:String>
+                  <x:String>F0001_1 - เปิดข้อร้องเรียน - เปิดข้อร้องเรียน        </x:String>
+                  <x:String>F0001_2 - เปิดข้อร้องเรียน - ตัวย่อหน่วยงาน        </x:String>
+                  <x:String>F0002 - เลขที่ข้อร้องเรียน        </x:String>
+                  <x:String>F0003 - (ประเภทข้อร้องเรียน)ประเภทข้อร้องเรียน        </x:String>
+                  <x:String>F0004 - (ผู้แจ้งคำร้องเรียน)ชื่อผู้แจ้ง        </x:String>
+                  <x:String>F0005 - (ผู้แจ้งคำร้องเรียน)สถานะผู้แจ้ง        </x:String>
+                  <x:String>F0006 - (ผู้แจ้งคำร้องเรียน)อื่นๆโปรดระบุ        </x:String>
+                  <x:String>F0007 - (ผู้แจ้งคำร้องเรียน)เลขที่ Call Center        </x:String>
+                  <x:String>F0008 - (ผู้แจ้งคำร้องเรียน)ชื่อโครงการ        </x:String>
+                  <x:String>F0009 - (ผู้แจ้งคำร้องเรียน)ระบุแหล่ง social network        </x:String>
+                  <x:String>F0010 - (หน่วยงานเปิดข้อร้องเรียน)หน่วยงานเปิดข้อร้องเรียน        </x:String>
+                  <x:String>F0011 - (หน่วยงานเปิดข้อร้องเรียน)ชื่อผู้เปิดข้อร้องเรียน        </x:String>
+                  <x:String>F0012 - (วันที่)วันที่ลูกค้าแจ้ง        </x:String>
+                  <x:String>F0013 - (วันที่)วันที่เปิดข้อร้องเรียน        </x:String>
+                  <x:String>F0014 - (ประเภทงาน)ประเภทงาน        </x:String>
+                  <x:String>F0015 - (ประเภทงาน)อื่นๆ โปรดระบุ        </x:String>
+                  <x:String>F0016 - (ประเภทงาน)ชื่อโครงการ        </x:String>
+                  <x:String>F0017 - (ประเภทงาน)ชื่อแปลง        </x:String>
+                  <x:String>F0018 - (ประเภทงาน)รอบ        </x:String>
+                  <x:String>F0019 - (ลูกค้า)ชื่อลูกค้า        </x:String>
+                  <x:String>F0020 - (ลูกค้า)ประเภทลูกค้า        </x:String>
+                  <x:String>F0021 - (ลูกค้า)VIP ผ่าน        </x:String>
+                  <x:String>F0022 - (ที่อยู่ลูกค้า)ที่อยู่ลูกค้า        </x:String>
+                  <x:String>F0023 - (ที่อยู่ลูกค้า)แผนที่ (ถ้ามี)        </x:String>
+                  <x:String>F0024_1 - จังหวัด/ต่างประเทศ - จังหวัด        </x:String>
+                  <x:String>F0025 - (ประเทศ)ประเทศ        </x:String>
+                  <x:String>F0026 - (ประเทศ)อื่นๆ โปรดระบุ        </x:String>
+                  <x:String>F0027 - (ผู้ติดต่อหน้างาน/ลูกค้า)ชื่อผู้ติดต่อหน้างาน/ลูกค้า        </x:String>
+                  <x:String>F0028 - (ผู้ติดต่อหน้างาน/ลูกค้า)เบอร์ที่ติดต่อ        </x:String>
+                  <x:String>F0029 - (สถานะผู้ร้องเรียน)สถานะผู้ร้องเรียน        </x:String>
+                  <x:String>F0030 - (สถานะผู้ร้องเรียน)อื่นๆ (โปรดระบุ)        </x:String>
+                  <x:String>F0031 - (สถานะการติดตั้ง)ผู้ดำเนินการติดตั้ง        </x:String>
+                  <x:String>F0032 - (สถานะการติดตั้ง)กรณีติดตั้งเองจาก        </x:String>
+                  <x:String>F0033 - (สถานะการติดตั้ง)สถานะการติดตั้ง        </x:String>
+                  <x:String>F0034 - (สถานะการติดตั้ง)ติดตั้งมาแล้ว (ปี)        </x:String>
+                  <x:String>F0035 - (สถานะการติดตั้ง)ติดตั้งมาแล้ว (เดือน)        </x:String>
+                  <x:String>F0036 - (สถานะการติดตั้ง)ใบรับประกันเลขที่        </x:String>
+                  <x:String>F0037 - กลุ่มสินค้า        </x:String>
+                  <x:String>F0038_1 - รายละเอียดผลิตภัณฑ์ - ประเภทหลังคา        </x:String>
+                  <x:String>F0038_2 - รายละเอียดผลิตภัณฑ์ - ประเภทสินค้า        </x:String>
+                  <x:String>F0038_3 - รายละเอียดผลิตภัณฑ์ - ชื่อสินค้า        </x:String>
+                  <x:String>F0038_4 - รายละเอียดผลิตภัณฑ์ - ชื่อ (Mass QA)        </x:String>
+                  <x:String>F0038_5 - รายละเอียดผลิตภัณฑ์ - Tel no.(Mass QA)        </x:String>
+                  <x:String>F0038_6 - รายละเอียดผลิตภัณฑ์ - E-Mail(Mass QA)        </x:String>
+                  <x:String>F0039 - ซื้อจาก(ผู้แทนจำหน่าย/ค้าช่วง)        </x:String>
+                  <x:String>F0040 - (ปัญหาเบื้องต้น)รายละเอียดปัญหา        </x:String>
+                  <x:String>F0041 - (ปัญหาเบื้องต้น)รูปปัญหา (ถ้ามี)        </x:String>
+                  <x:String>F0042 - รายละเอียดความเสียหาย (ร่างกาย/ทรัพย์สิน)        </x:String>
+                  <x:String>F0043 - (First response step 1)วันที่ติดต่อกลับลูกค้า        </x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6082e7dc48386fa20f2f0d6d90eccebb" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboField1___001' tag='SELECT' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item SELECT  between" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="between">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="16">
+                  <x:String>=</x:String>
+                  <x:String>&lt;</x:String>
+                  <x:String>&lt;=</x:String>
+                  <x:String>&gt;</x:String>
+                  <x:String>&gt;=</x:String>
+                  <x:String>&lt;&gt;</x:String>
+                  <x:String>between</x:String>
+                  <x:String>Like</x:String>
+                  <x:String>Not Like</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="150f02f829e32ae7b62a5411f2d2609d" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboOperator1___001' tag='SELECT' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="300" DisplayName="Type Into start date" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[cc_startDate]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0764d6e4e9cf943f3d13f1f39d42cb7b" Selector="&lt;html app='chrome.exe' title='CClaim v2.0' /&gt;&lt;webctrl id='txtMinDate1_DP___001' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="300" DisplayName="Type Into to date" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[cc_toDate]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9984f4b367bda8db9339c45caa7e0bda" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='txtMaxDate1_DP___001' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item and" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="and">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>-- select --</x:String>
+                  <x:String>and</x:String>
+                  <x:String>or</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4b3ad272a637eb8f2a624a111962892a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboLogic1___001' tag='SELECT' /&gt;" WaitForReady="COMPLETE" />
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <Sequence DisplayName="Check Box" sap:VirtualizedContainerService.HintSize="314,52" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - ขั้นตอน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_1">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='chkProcessStatus' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F002 เลขที่ข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_2">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0002' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F007 ผู้แจ้งข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_3">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0007' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0013 วันที่เปิดข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_4">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0013' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0019 ชื่อลูกค้า" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_5">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0019' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0051 กำหนดผู้รับผิดชอบ" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_6">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0051' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0062 ยืนยันผลิตภัณฑ์" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_7">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0062' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0224 ประเภทข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_8">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0224' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0225 สภาพปัญหาของสินค้า" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_9">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0225' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+              <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0226 โรงงาน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_10">
+                <ui:Check.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0226' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+                </ui:Check.Target>
+              </ui:Check>
+            </Sequence>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Check box&quot;]" />
+            <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="1000" DisplayName="Click Export Excel" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="334fd0377a0f73b5e77e4281a5de00d7" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cmdExport' tag='INPUT' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click ClickType="CLICK_SINGLE" DelayBefore="500" DelayMS="500" DisplayName="Click Export Excel Result" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c5f7861789f7c009cde3d16f07c0f592" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='+ ส่งออกผลลัพธ์เป็นไฟล์ Excel' tag='A' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click ClickType="CLICK_SINGLE" DelayBefore="500" DelayMS="500" DisplayName="Click Export Excel Finish" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c5f7861789f7c009cde3d16f07c0f592" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='คลิกที่นี่เพื่อ Download' tag='A' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Edit'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ad51ec8dd927c64c9ea191f07764d777" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[str_getTextFileName]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+str_getTextFileName+ &quot;[k(enter)]&quot;]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7e6cb1fbaa071d9cf6ae44b1d2b22aa6" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Export roof-and-cw-procuct(TSS) File Excel_1&quot;]" />
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Sequence DisplayName="roof-service-VOC(RSS)" sap:VirtualizedContainerService.HintSize="358,4453" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;&gt;&gt;&gt; Start Export roof-service-VOC(RSS) for access db 2&quot;]" />
+      <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="300" DelayBefore="300" DisplayName="Select Item roof-and-cw-procuct(TSS)" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="2. Roof service VOC (RSS)        ">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="8">
+            <x:String>1. Roof And CW Product (TSS)        </x:String>
+            <x:String>2. Roof service VOC (RSS)        </x:String>
+            <x:String>3. Landscape Product &amp; Service        </x:String>
+            <x:String>4. Internal Feedback (RSS)        </x:String>
+            <x:String>6. Inter Business        </x:String>
+            <x:String>7. SFCG VOC        </x:String>
+            <x:String>8. Service and Solution (Roof)        </x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="44d2cc8f5c3830f3ebedde88720dd329" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl tag='SELECT' tableCol='1' tableRow='1' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="300" DisplayName="Click Display" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="713f3ec756acd3e47d405753bf64a0f2" Selector="&lt;html app='chrome.exe' title='CClaim v2.0' /&gt;&lt;webctrl parentid='cDPCenterBottom' tag='A' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="300" DisplayName="Click ExportMain" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e5bf9d927125dac6eef3d45cf190841c" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='แสดงผลตาราง' tag='A' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item SELECT" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="F0013 - (วันที่)วันที่เปิดข้อร้องเรียน        ">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="50">
+            <x:String>-- select field --</x:String>
+            <x:String>F0001_1 - เปิดข้อร้องเรียน - เปิดข้อร้องเรียน        </x:String>
+            <x:String>F0001_2 - เปิดข้อร้องเรียน - ตัวย่อหน่วยงาน        </x:String>
+            <x:String>F0002 - เลขที่ข้อร้องเรียน        </x:String>
+            <x:String>F0003 - (ประเภทข้อร้องเรียน)ประเภทข้อร้องเรียน        </x:String>
+            <x:String>F0004 - (ผู้แจ้งคำร้องเรียน)ชื่อผู้แจ้ง        </x:String>
+            <x:String>F0005 - (ผู้แจ้งคำร้องเรียน)สถานะผู้แจ้ง        </x:String>
+            <x:String>F0006 - (ผู้แจ้งคำร้องเรียน)อื่นๆโปรดระบุ        </x:String>
+            <x:String>F0007 - (ผู้แจ้งคำร้องเรียน)เลขที่ Call Center        </x:String>
+            <x:String>F0008 - (ผู้แจ้งคำร้องเรียน)ชื่อโครงการ        </x:String>
+            <x:String>F0009 - (ผู้แจ้งคำร้องเรียน)ระบุแหล่ง social network        </x:String>
+            <x:String>F0010 - (หน่วยงานเปิดข้อร้องเรียน)หน่วยงานเปิดข้อร้องเรียน        </x:String>
+            <x:String>F0011 - (หน่วยงานเปิดข้อร้องเรียน)ชื่อผู้เปิดข้อร้องเรียน        </x:String>
+            <x:String>F0012 - (วันที่)วันที่ลูกค้าแจ้ง        </x:String>
+            <x:String>F0013 - (วันที่)วันที่เปิดข้อร้องเรียน        </x:String>
+            <x:String>F0014 - (ประเภทงาน)ประเภทงาน        </x:String>
+            <x:String>F0015 - (ประเภทงาน)อื่นๆ โปรดระบุ        </x:String>
+            <x:String>F0016 - (ประเภทงาน)ชื่อโครงการ        </x:String>
+            <x:String>F0017 - (ประเภทงาน)ชื่อแปลง        </x:String>
+            <x:String>F0018 - (ประเภทงาน)รอบ        </x:String>
+            <x:String>F0019 - (ลูกค้า)ชื่อลูกค้า        </x:String>
+            <x:String>F0020 - (ลูกค้า)ประเภทลูกค้า        </x:String>
+            <x:String>F0021 - (ลูกค้า)VIP ผ่าน        </x:String>
+            <x:String>F0022 - (ที่อยู่ลูกค้า)ที่อยู่ลูกค้า        </x:String>
+            <x:String>F0023 - (ที่อยู่ลูกค้า)แผนที่ (ถ้ามี)        </x:String>
+            <x:String>F0024_1 - จังหวัด/ต่างประเทศ - จังหวัด        </x:String>
+            <x:String>F0025 - (ประเทศ)ประเทศ        </x:String>
+            <x:String>F0026 - (ประเทศ)อื่นๆ โปรดระบุ        </x:String>
+            <x:String>F0027 - (ผู้ติดต่อหน้างาน/ลูกค้า)ชื่อผู้ติดต่อหน้างาน/ลูกค้า        </x:String>
+            <x:String>F0028 - (ผู้ติดต่อหน้างาน/ลูกค้า)เบอร์ที่ติดต่อ        </x:String>
+            <x:String>F0029 - (สถานะผู้ร้องเรียน)สถานะผู้ร้องเรียน        </x:String>
+            <x:String>F0030 - (สถานะผู้ร้องเรียน)อื่นๆ (โปรดระบุ)        </x:String>
+            <x:String>F0031 - (สถานะการติดตั้ง)ผู้ดำเนินการติดตั้ง        </x:String>
+            <x:String>F0032 - (สถานะการติดตั้ง)กรณีติดตั้งเองจาก        </x:String>
+            <x:String>F0033 - (สถานะการติดตั้ง)สถานะการติดตั้ง        </x:String>
+            <x:String>F0034 - (สถานะการติดตั้ง)ติดตั้งมาแล้ว (ปี)        </x:String>
+            <x:String>F0035 - (สถานะการติดตั้ง)ติดตั้งมาแล้ว (เดือน)        </x:String>
+            <x:String>F0036 - (สถานะการติดตั้ง)ใบรับประกันเลขที่        </x:String>
+            <x:String>F0037 - กลุ่มสินค้า        </x:String>
+            <x:String>F0038_1 - รายละเอียดผลิตภัณฑ์ - ประเภทหลังคา        </x:String>
+            <x:String>F0038_2 - รายละเอียดผลิตภัณฑ์ - ประเภทสินค้า        </x:String>
+            <x:String>F0038_3 - รายละเอียดผลิตภัณฑ์ - ชื่อสินค้า        </x:String>
+            <x:String>F0038_4 - รายละเอียดผลิตภัณฑ์ - ชื่อ (Mass QA)        </x:String>
+            <x:String>F0038_5 - รายละเอียดผลิตภัณฑ์ - Tel no.(Mass QA)        </x:String>
+            <x:String>F0038_6 - รายละเอียดผลิตภัณฑ์ - E-Mail(Mass QA)        </x:String>
+            <x:String>F0039 - ซื้อจาก(ผู้แทนจำหน่าย/ค้าช่วง)        </x:String>
+            <x:String>F0040 - (ปัญหาเบื้องต้น)รายละเอียดปัญหา        </x:String>
+            <x:String>F0041 - (ปัญหาเบื้องต้น)รูปปัญหา (ถ้ามี)        </x:String>
+            <x:String>F0042 - รายละเอียดความเสียหาย (ร่างกาย/ทรัพย์สิน)        </x:String>
+            <x:String>F0043 - (First response step 1)วันที่ติดต่อกลับลูกค้า        </x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="6082e7dc48386fa20f2f0d6d90eccebb" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboField1___001' tag='SELECT' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item SELECT  between" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="between">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="16">
+            <x:String>=</x:String>
+            <x:String>&lt;</x:String>
+            <x:String>&lt;=</x:String>
+            <x:String>&gt;</x:String>
+            <x:String>&gt;=</x:String>
+            <x:String>&lt;&gt;</x:String>
+            <x:String>between</x:String>
+            <x:String>Like</x:String>
+            <x:String>Not Like</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="150f02f829e32ae7b62a5411f2d2609d" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboOperator1___001' tag='SELECT' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="300" DisplayName="Type Into start date" EmptyField="True" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[cc_startDate]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0764d6e4e9cf943f3d13f1f39d42cb7b" Selector="&lt;html app='chrome.exe' title='CClaim v2.0' /&gt;&lt;webctrl id='txtMinDate1_DP___001' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="300" DisplayName="Type Into to date" EmptyField="True" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="[cc_toDate]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9984f4b367bda8db9339c45caa7e0bda" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='txtMaxDate1_DP___001' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="300" DisplayName="Select Item and" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="and">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="4">
+            <x:String>-- select --</x:String>
+            <x:String>and</x:String>
+            <x:String>or</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4b3ad272a637eb8f2a624a111962892a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cboLogic1___001' tag='SELECT' /&gt;" WaitForReady="COMPLETE" />
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <Sequence DisplayName="Check Box" sap:VirtualizedContainerService.HintSize="336,2420" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - ขั้นตอน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_11">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='chkProcessStatus' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F002 เลขที่ข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_12">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0002' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F007 ผู้แจ้งข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_13">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0007' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0013 วันที่เปิดข้อร้องเรียน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_14">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0013' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0014 วันที่เปิดประเภทงาน" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_21">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0014' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0016 ชื่อโครงการ" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_22">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0016' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0051 กำหนดผู้รับผิดชอบ" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_15">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0051' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0062 ยืนยันผลิตภัณฑ์จากการสำรวจ" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_16">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0062' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0071 จำนวนสินค้าที่พบปัญหา" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_17">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0071' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0072 จำนวนสินค้าทั้งหมดที่ซื้อไป" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_18">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0072' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0073 Lot no. (เลขล็อต)" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_23">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0073' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0097 ผลสำรวจอาการเบื้องต้นโดยบท/SC" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_19">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0097' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0098 แนวทางพิจารณาชดเชย" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_20">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0098' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0100 ประเภทการชดเชย" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_24">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0100' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0126 มูลค่ารวมการชดเชย (บาท)" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_25">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0126' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+        <ui:Check ContinueOnError="{x:Null}" DelayAfter="{x:Null}" Action="Check" DelayBefore="100" DisplayName="Check - F0223 มูลค่ารวมการชดเชย (บาท)" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Check_26">
+          <ui:Check.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b74f3d1533b5adb3b67378b6db5c7f7a" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='F0223' tag='INPUT' /&gt;" WaitForReady="COMPLETE" />
+          </ui:Check.Target>
+        </ui:Check>
+      </Sequence>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,93" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Check box&quot;]" />
+      <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="1000" DisplayName="Click Export Excel" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="334fd0377a0f73b5e77e4281a5de00d7" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl id='cmdExport' tag='INPUT' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:Click ClickType="CLICK_SINGLE" DelayBefore="500" DelayMS="500" DisplayName="Click Export Excel Result" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c5f7861789f7c009cde3d16f07c0f592" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='+ ส่งออกผลลัพธ์เป็นไฟล์ Excel' tag='A' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:Click ClickType="CLICK_SINGLE" DelayBefore="500" DelayMS="500" DisplayName="Click Export Excel Finish" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c5f7861789f7c009cde3d16f07c0f592" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='คลิกที่นี่เพื่อ Download' tag='A' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Edit'" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="ad51ec8dd927c64c9ea191f07764d777" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="100000" WaitForReady="COMPLETE" />
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="x:String">[str_getTextFileName]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="336,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+str_getTextFileName+ &quot;[k(enter)]&quot;]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7e6cb1fbaa071d9cf6ae44b1d2b22aa6" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Export roof-service-VOC(RSS) File Excel_2&quot;]" />
+    </Sequence>
+    <Assign sap:VirtualizedContainerService.HintSize="358,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_getTextFileName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>
