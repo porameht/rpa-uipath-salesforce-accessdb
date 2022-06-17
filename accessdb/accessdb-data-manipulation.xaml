@@ -1,0 +1,204 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="acessdb_data_manipulation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="428,2683" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="acessdb-data-manipulation" sap:VirtualizedContainerService.HintSize="388,2563" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="dt_DB_ALL_V3" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_cclaim1" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_cclaim2" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DT_cclaim1]" DisplayName="Read Range - Data from excel c-claim 1" sap:VirtualizedContainerService.HintSize="366,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="C:\Users\Administrator\Documents\UiPath\0065-Filetest\CClaim_DataOn220617_1_ .xlsx" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Get data from Excel c-claim 1&quot;]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[DT_cclaim2]" DisplayName="Read Range - Data from excel c-claim 2" sap:VirtualizedContainerService.HintSize="366,87" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="C:\Users\Administrator\Documents\UiPath\0065-Filetest\CClaim_DataOn220617_2_ .xlsx" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Get data from Excel c-claim 2&quot;]" />
+    <ui:DatabaseConnect DatabaseConnection="[dt_DB_ALL_V3]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="366,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.OleDb" ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;;Data Source=C:\Users\Administrator\Documents\UiPath\0065-Filetest\DB ALL.V3.accdb" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Connect Access Db ALL.V3&quot;]" />
+    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query - Del data 01_DATA RF&amp;CW (C-Claim)" ExistingDbConnection="[dt_DB_ALL_V3]" sap:VirtualizedContainerService.HintSize="366,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" Sql="DELETE FROM [01_DATA RF&amp;CW (C-Claim)]">
+      <ui:ExecuteNonQuery.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:ExecuteNonQuery.Parameters>
+    </ui:ExecuteNonQuery>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Del data 01_DATA RF&amp;CW (C-Claim)&quot;]" />
+    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query - Del data 01_DATA Roofing Service (C-Claim)" ExistingDbConnection="[dt_DB_ALL_V3]" sap:VirtualizedContainerService.HintSize="366,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="DELETE FROM [01_DATA Roofing Service (C-Claim)]">
+      <ui:ExecuteNonQuery.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:ExecuteNonQuery.Parameters>
+    </ui:ExecuteNonQuery>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Del data 01_DATA Roofing Service (C-Claim)&quot;]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT_cclaim1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="366,360" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="336,212" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="insertedRecords" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[insertedRecords]" DisplayName="Execute Query - Insert Data From Excel to Accessdb 1" ExistingDbConnection="[dt_DB_ALL_V3]" sap:VirtualizedContainerService.HintSize="314,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="INSERT Into [01_DATA RF&amp;CW (C-Claim)] (&#xA;ขั้นตอน, &#xA;[F0002 - เลขที่ข้อร้องเรียน], &#xA;[F0007 - (ผู้แจ้งคำร้องเรียน) - เลขที่ Call Center], &#xA;[F0013 - (วันที่) - วันที่เปิดข้อร้องเรียน], &#xA;[F0019 - (ลูกค้า) - ชื่อลูกค้า], &#xA;[F0051_1 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_2 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_3 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_4 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_5 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_6 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_7 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_8 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_9 - กำหนดผู้รับผิดชอบ], &#xA;[F0062_1 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_2 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_3 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0224_1 - ประเภทข้อร้องเรียน], &#xA;[F0224_2 - ประเภทข้อร้องเรียน], &#xA;[F0224_3 - ประเภทข้อร้องเรียน], &#xA;[F0224_4 - ประเภทข้อร้องเรียน], &#xA;[F0225_1 - สภาพปัญหาของสินค้า], &#xA;[F0225_2 - สภาพปัญหาของสินค้า], &#xA;[F0225_3 - สภาพปัญหาของสินค้า], &#xA;[F0226_1 - โรงงาน], &#xA;[F0226_2 - โรงงาน]) &#xA;VALUES (@value1, @value2, @value3, @value4,@value5,@value6, @value7, @value8, @value9, @value10, @value11, @value12, @value13, @value14, @value15, @value16, @value17, @value18, @value19, @value20, @value21, @value22, @value23, @value24, @value25, @value26);">
+              <ui:ExecuteQuery.Parameters>
+                <InArgument x:TypeArguments="x:String" x:Key="value1">[row.Item(0).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value2">[row.Item(1).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value3">[row.Item(2).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value4">[row.Item(3).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value5">[row.Item(4).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value6">[row.Item(5).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value7">[row.Item(6).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value8">[row.Item(7).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value9">[row.Item(8).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value10">[row.Item(9).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value11">[row.Item(10).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value12">[row.Item(11).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value13">[row.Item(12).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value14">[row.Item(13).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value15">[row.Item(14).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value16">[row.Item(15).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value17">[row.Item(16).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value18">[row.Item(17).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value19">[row.Item(18).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value20">[row.Item(19).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value21">[row.Item(20).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value22">[row.Item(21).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value23">[row.Item(22).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value24">[row.Item(23).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value25">[row.Item(24).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value26">[row.Item(25).ToString]</InArgument>
+              </ui:ExecuteQuery.Parameters>
+            </ui:ExecuteQuery>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="366,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Comment sap:VirtualizedContainerService.HintSize="314,536" sap2010:WorkflowViewState.IdRef="Comment_1" Text="&quot;INSERT Into [01_DATA RF&amp;CW (C-Claim)] (&#xA;ขั้นตอน, &#xA;[F0002 - เลขที่ข้อร้องเรียน], &#xA;[F0007 - (ผู้แจ้งคำร้องเรียน) - เลขที่ Call Center], &#xA;[F0013 - (วันที่) - วันที่เปิดข้อร้องเรียน], &#xA;[F0019 - (ลูกค้า) - ชื่อลูกค้า], &#xA;[F0051_1 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_2 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_3 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_4 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_5 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_6 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_7 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_8 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_9 - กำหนดผู้รับผิดชอบ], &#xA;[F0062_1 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_2 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_3 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0224_1 - ประเภทข้อร้องเรียน], &#xA;[F0224_2 - ประเภทข้อร้องเรียน], &#xA;[F0224_3 - ประเภทข้อร้องเรียน], &#xA;[F0224_4 - ประเภทข้อร้องเรียน], &#xA;[F0225_1 - สภาพปัญหาของสินค้า], &#xA;[F0225_2 - สภาพปัญหาของสินค้า], &#xA;[F0225_3 - สภาพปัญหาของสินค้า], &#xA;[F0226_1 - โรงงาน], &#xA;[F0226_2 - โรงงาน]) &#xA;VALUES (@value1, @value2, @value3, @value4,@value5,@value6, @value7, @value8, @value9, @value10, @value11, @value12, @value13, @value14, @value15, @value16, @value17, @value18, @value19, @value20, @value21, @value22, @value23, @value24, @value25, @value26);&quot;" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Insert data 01_DATA RF&amp;CW (C-Claim)&quot;]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT_cclaim2]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="366,360" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="336,212" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="insertedRecords" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[insertedRecords]" DisplayName="Execute Query - Insert Data From Excel to Accessdb 1" ExistingDbConnection="[dt_DB_ALL_V3]" sap:VirtualizedContainerService.HintSize="314,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="INSERT Into [01_DATA Roofing Service (C-Claim)] (&#xA;ขั้นตอน, &#xA;[F0002 - เลขที่ข้อร้องเรียน], &#xA;[F0007 - (ผู้แจ้งคำร้องเรียน) - เลขที่ Call Center], &#xA;[F0013 - (วันที่) - วันที่เปิดข้อร้องเรียน], &#xA;[F0014 - (ประเภทงาน) - ประเภทงาน], &#xA;[F0016 - (ประเภทงาน) - ชื่อโครงการ], &#xA;[F0051_1 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_2 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_3 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_4 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_5 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_6 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_7 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_8 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_9 - กำหนดผู้รับผิดชอบ], &#xA;[F0051_10 - กำหนดผู้รับผิดชอบ], &#xA;[F0062_1 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_2 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0062_3 - ยืนยันผลิตภัณฑ์จากการสำรวจ], &#xA;[F0071 - จำนวนสินค้าที่พบปัญหา], &#xA;[F0072 - จำนวนสินค้าทั้งหมดที่ซื้อไป], &#xA;[F0073 - (Lot no ) - Lot no (เลขล็อต)], &#xA;[F0097 - ผลสำรวจอาการเบื้องต้นโดยบท/SC], &#xA;[F0098 - (แนวทางพิจารณาชดเชย) - แนวทางพิจารณาชดเชย], &#xA;[F0100 - (ประเภทการชดเชย) - ประเภทการชดเชย], &#xA;[F0126 - มูลค่ารวมการชดเชย (บาท)]) &#xA;VALUES (@value1, @value2, @value3, @value4,@value5,@value6, @value7, @value8, @value9, @value10, @value11, @value12, @value13, @value14, @value15, @value16, @value17, @value18, @value19, @value20, @value21, @value22, @value23, @value24, @value25, @value26);">
+              <ui:ExecuteQuery.Parameters>
+                <InArgument x:TypeArguments="x:String" x:Key="value1">[row.Item(0).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value2">[row.Item(1).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value3">[row.Item(2).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value4">[row.Item(3).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value5">[row.Item(4).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value6">[row.Item(5).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value7">[row.Item(6).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value8">[row.Item(7).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value9">[row.Item(8).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value10">[row.Item(9).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value11">[row.Item(10).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value12">[row.Item(11).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value13">[row.Item(12).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value14">[row.Item(13).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value15">[row.Item(14).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value16">[row.Item(15).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value17">[row.Item(16).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value18">[row.Item(17).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value19">[row.Item(18).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value20">[row.Item(19).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value21">[row.Item(20).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value22">[row.Item(21).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value23">[row.Item(22).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value24">[row.Item(23).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value25">[row.Item(24).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="value26">[row.Item(25).ToString]</InArgument>
+              </ui:ExecuteQuery.Parameters>
+            </ui:ExecuteQuery>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="366,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Insert data 01_DATA Roofing Service (C-Claim)&quot;]" />
+    <ui:DatabaseDisconnect DatabaseConnection="[dt_DB_ALL_V3]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="366,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+  </Sequence>
+</Activity>

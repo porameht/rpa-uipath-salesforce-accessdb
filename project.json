@@ -3,8 +3,10 @@
   "description": "Robotic Enterprise Framework -0065-ComplaintOverdueDailyReport",
   "main": "Main.xaml",
   "dependencies": {
+    "BalaReva.Access.Activities": "2.0.5",
     "UiPath.Credentials.Activities": "[1.1.6479.13204]",
     "UiPath.Database.Activities": "1.0.7053.27728",
+    "UiPath.DocumentProcessing.Contracts": "1.0.0",
     "UiPath.Excel.Activities": "[2.5.4]",
     "UiPath.Mail.Activities": "[1.4.1]",
     "UiPath.System.Activities": "[19.4.1]",
