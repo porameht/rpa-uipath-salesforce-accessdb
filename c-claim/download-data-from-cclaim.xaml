@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="download_data_from_cclaim" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="398,3852" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="download_data_from_cclaim" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="398,3960" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -48,7 +48,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="download-data-from-cclaim" sap:VirtualizedContainerService.HintSize="358,3772" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="download-data-from-cclaim" sap:VirtualizedContainerService.HintSize="358,3880" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="cc_startDate" />
       <Variable x:TypeArguments="x:Int32" Name="cc_dayInMonth" />
@@ -60,6 +60,11 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke login-cclaim workflow" sap:VirtualizedContainerService.HintSize="336,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="c-claim\login-cclaim.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
     <Assign sap:VirtualizedContainerService.HintSize="336,60" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[cc_pathFile]</OutArgument>
@@ -93,10 +98,10 @@
       </Assign.Value>
     </Assign>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;___start date = &quot;+cc_startDate+&quot; to date = &quot;+cc_toDate+&quot;___&quot;]" />
-    <Sequence DisplayName="roof-and-cw-procuct(TSS)" sap:VirtualizedContainerService.HintSize="336,51" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="roof-and-cw-procuct(TSS)" sap:VirtualizedContainerService.HintSize="336,2516" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -365,7 +370,7 @@
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c5f7861789f7c009cde3d16f07c0f592" Selector="&lt;html app='chrome.exe' title='CClaim*' /&gt;&lt;webctrl aaname='คลิกที่นี่เพื่อ Download' tag='A' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
         </ui:Click.Target>
       </ui:Click>
-      <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+&quot;CClaim_DataOn&quot;+DateTime.Now.ToString(“yyMMdd”)+&quot;_1_ .xlsx&quot;+&quot;[k(enter)]&quot;]">
+      <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+&quot;C-Claim_Access.xlsx&quot;+&quot;[k(enter)]&quot;]">
         <ui:TypeInto.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7e6cb1fbaa071d9cf6ae44b1d2b22aa6" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
         </ui:TypeInto.Target>
@@ -972,10 +977,10 @@
       </ui:TypeInto>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Export roof-and-cw-procuct(TSS) C-CLAIM Report&quot;]" />
     </Sequence>
-    <Sequence DisplayName="roof-service-VOC(RSS)" sap:VirtualizedContainerService.HintSize="336,2662" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="roof-service-VOC(RSS)" sap:VirtualizedContainerService.HintSize="336,51" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -1294,7 +1299,7 @@
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="04399f3cf9459f46a9a4ee4faba1d136" Selector="&lt;html app='chrome.exe' title='500 - Internal server error.' /&gt;&lt;webctrl tag='H2' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+&quot;CClaim_DataOn&quot;+DateTime.Now.ToString(“yyMMdd”)+&quot;_2_ .xlsx&quot;+ &quot;[k(enter)]&quot;]">
+      <ui:TypeInto DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="300" DelayMS="300" DisplayName="Type Into File Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="[cc_pathFile+&quot;C-Claim RSS_Access.xlsx&quot;+ &quot;[k(enter)]&quot;]">
         <ui:TypeInto.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="7e6cb1fbaa071d9cf6ae44b1d2b22aa6" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" TimeoutMS="1000000" WaitForReady="COMPLETE" />
         </ui:TypeInto.Target>
@@ -1954,5 +1959,10 @@
       </ui:TypeInto>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Export roof-service-VOC(RSS) C-Claim RS&quot;]" />
     </Sequence>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke accessdb-data-manipulation workflow" sap:VirtualizedContainerService.HintSize="336,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="accessdb\accessdb-data-manipulation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
