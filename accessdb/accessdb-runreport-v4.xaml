@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="access_runreport_v4" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,1978" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="access_runreport_v4" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="514,3212" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -50,7 +50,7 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="access-runreport-v4" sap:VirtualizedContainerService.HintSize="436,1898" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="access-runreport-v4" sap:VirtualizedContainerService.HintSize="474,3132" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="dateNow" />
       <Variable x:TypeArguments="x:String" Name="pathFile_runreportV4" />
@@ -61,15 +61,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="414,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="452,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[pathFile_runreportV4]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">C:\Users\Administrator\Documents\UiPath\0065-Filetest\RUNREPORT V4.accdb</InArgument>
+        <InArgument x:TypeArguments="x:String">\\172.18.10.131\Users\Administrator\Documents\UiPath\0065-File\RUNREPORT V4.accdb</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="414,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="452,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[dateNow]</OutArgument>
       </Assign.To>
@@ -77,26 +77,25 @@
         <InArgument x:TypeArguments="x:String">[System.DateTime.Now.ToString("dd/MM/yyyy")+" "+"23:59:59"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:DatabaseConnect DatabaseConnection="[dt_runreportv4]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.OleDb" ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=&quot;C:\Users\Administrator\Documents\UiPath\0065-Filetest\RUNREPORT V4.accdb&quot;" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="414,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Connect Access Db RUNREPORT V4&quot;]" />
-    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[pathFile_runreportV4]" sap:VirtualizedContainerService.HintSize="414,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="414,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Open File RUNREPORT V4&quot;]" />
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'MSACCESS.EXE Access'" sap:VirtualizedContainerService.HintSize="414,1086" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="80e7f3b19d2255664bbc888065c22729" Selector="&lt;wnd app='msaccess.exe' cls='OMain' title='Access - RUNREPORT V4*' /&gt;">
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[pathFile_runreportV4]" sap:VirtualizedContainerService.HintSize="452,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Open File RUNREPORT V4&quot;]" />
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'MSACCESS.EXE Access'" sap:VirtualizedContainerService.HintSize="452,2550" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="80e7f3b19d2255664bbc888065c22729" Selector="&lt;wnd app='msaccess.exe' cls='OMain' title='Access - RUNREPORT V4*' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,940" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="438,2404" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="ck_warning" />
+              <Variable x:TypeArguments="x:Boolean" Name="ck_dataBase" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="486,793" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -159,8 +158,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
-            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Database Tools'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Database Tools'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -175,7 +174,7 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4e4b9ebe55bd8e339f5836e098498826" Selector="&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Ribbon Tabs' role='page tab list' /&gt;&lt;ctrl name='Database Tools' role='page tab' /&gt;" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -187,10 +186,83 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="747710c80ddd57173d9ef861244c2038" Selector="&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Lower Ribbon' role='pane' /&gt;&lt;ctrl name='Database Tools' role='property page' /&gt;&lt;ctrl name='Tools' role='tool bar' /&gt;&lt;ctrl name='Compact and Repair Database' role='push button' /&gt;" WaitForReady="COMPLETE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="747710c80ddd57173d9ef861244c2038" Selector="&lt;wnd app='msaccess.exe' cls='OMain' title='Access - RUNREPORT V4 : Database- *' /&gt;&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Lower Ribbon' role='pane' /&gt;&lt;ctrl name='Database Tools' role='property page' /&gt;&lt;ctrl name='Tools' role='tool bar' /&gt;&lt;ctrl name='Compact and Repair Database' role='push button' /&gt;" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,51" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="534,1078" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="512,954" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[ck_dataBase = false]">
+                    <Sequence sap:VirtualizedContainerService.HintSize="486,793" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="464,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="747710c80ddd57173d9ef861244c2038" Selector="&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Lower Ribbon' role='pane' /&gt;&lt;ctrl name='Database Tools' role='property page' /&gt;&lt;ctrl name='Tools' role='tool bar' /&gt;&lt;ctrl name='Compact and Repair Database' role='push button' /&gt;" WaitForReady="COMPLETE" />
+                        </ui:Click.Target>
+                      </ui:Click>
+                      <ui:UiElementExists DisplayName="Element Exists 'MSACCESS.EXE Microsoft'" Exists="[ck_dataBase]" sap:VirtualizedContainerService.HintSize="464,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="9574ba440e1a6ae169a78b818afe654c" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[ck_dataBase]" sap:VirtualizedContainerService.HintSize="464,377" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="336,230" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="50f16ca5e02fbc1156c39c9b9f543ddd" Selector="&lt;wnd app='msaccess.exe' cls='#32770' title='Microsoft Access' /&gt;&lt;wnd ctrlid='2' title='OK' /&gt;" WaitForReady="INTERACTIVE" />
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </DoWhile>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;f&quot;]" TopMost="True" />
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -205,33 +277,95 @@
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3f6debc25a5869cf8440bed740f2fea5" Selector="&lt;wnd cls='NetUIHWND' idx='3' /&gt;&lt;ctrl name='Navigation Pane' role='client' /&gt;&lt;ctrl name='Unassigned Objects' role='grouping' /&gt;&lt;ctrl name='Unassigned Objects' role='client' /&gt;&lt;ctrl name='(0) Date ปัจจุบัน' role='push button' /&gt;&lt;ctrl name='(0) Date ปัจจุบัน' role='text' /&gt;" WaitForReady="COMPLETE" />
               </ui:Click.Target>
             </ui:Click>
-            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'OKttbx'" EmptyField="True" sap:VirtualizedContainerService.HintSize="314,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[dateNow+ &quot;[k(enter)]&quot;]">
+            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'OKttbx'" EmptyField="True" sap:VirtualizedContainerService.HintSize="416,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[dateNow+ &quot;[k(enter)]&quot;]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="dd7f5cb91f778dc5db894c2a67b1ccb4" Selector="&lt;wnd aaname='Workspace' cls='MDIClient' /&gt;&lt;wnd cls='OTable' title='(0) Date ปัจจุบัน' /&gt;&lt;wnd aaname='Grid' cls='OGrid' /&gt;&lt;wnd omit:aaname='*/2022 11:59:59 PM' cls='OKttbx' /&gt;" TimeoutMS="10000" WaitForReady="COMPLETE" />
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,713" sap2010:WorkflowViewState.IdRef="CommentOut_6">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,212" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,635" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query - Del Table 00_1" ExistingDbConnection="[dt_runreportv4]" sap:VirtualizedContainerService.HintSize="314,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="DROP TABLE [001Master C-Claim], [00_1_Master C-Claim RF&amp;CW Report], [00_1_Master C-Claim Roofing Service Report], [00_1_Master C-Claim RS], [00_1_Master Completed], [00_1_Master First], [00_1_Master Last Modifiled], [00_1_Master Open]">
+                  <ui:DatabaseConnect DatabaseConnection="[dt_runreportv4]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="System.Data.OleDb" ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=&quot;\\172.18.10.131\Users\Administrator\Documents\UiPath\0065-File\RUNREPORT V4.accdb&quot;" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt; Connect Access Db RUNREPORT V4&quot;]" />
+                  <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Execute Non Query - Del Table 00_1" ExistingDbConnection="[dt_runreportv4]" sap:VirtualizedContainerService.HintSize="314,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" Sql="DROP TABLE [00_1_Master C-Claim], [00_1_Master C-Claim RF&amp;CW Report], [00_1_Master C-Claim Roofing Service Report], [00_1_Master C-Claim RS], [00_1_Master Completed], [00_1_Master First], [00_1_Master Last Modifiled], [00_1_Master Open]">
                     <ui:ExecuteNonQuery.Parameters>
                       <scg:Dictionary x:TypeArguments="x:String, Argument" />
                     </ui:ExecuteNonQuery.Parameters>
                   </ui:ExecuteNonQuery>
+                  <ui:DatabaseDisconnect DatabaseConnection="[dt_runreportv4]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;&gt;&gt; Successfully &gt;Dis Connect Access Db RUNREPORT V4&quot;]" />
                 </Sequence>
               </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
             </ui:CommentOut>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'page tab  Database Tools'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1b2056fd4aa807dfe7ee7f08a2c7ce7e" Selector="&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Ribbon Tabs' role='page tab list' /&gt;&lt;ctrl name='Database Tools' role='page tab' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Run Macro'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="8d8182875185e8f4f99d84e5983ccee6" Selector="&lt;wnd cls='NetUIHWND' idx='1' /&gt;&lt;ctrl name='Ribbon' role='property page' /&gt;&lt;ctrl name='Lower Ribbon' role='pane' /&gt;&lt;ctrl name='Database Tools' role='property page' /&gt;&lt;ctrl idx='1' name='Macro' role='tool bar' /&gt;&lt;ctrl name='Run Macro' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'editable text'" sap:VirtualizedContainerService.HintSize="416,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="0_Macro Final">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="16">
+                  <x:String>0_Macro Final</x:String>
+                  <x:String>00_Macro Del</x:String>
+                  <x:String>01_Macro Import</x:String>
+                  <x:String>02_Macro Append &amp; Update</x:String>
+                  <x:String>03_Macro นอกระบบ</x:String>
+                  <x:String>04_Macro Overdue</x:String>
+                  <x:String>05_Macro Change SLA Fixing</x:String>
+                  <x:String>06_Macro Roof Business</x:String>
+                  <x:String>07_Macro Monitor น้องน้ำ</x:String>
+                  <x:String>08 CS-Biz ปิดเดือน Overdue</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="431e8134bb8c4e1bb75ae322dea3aaa9" Selector="&lt;wnd app='msaccess.exe' cls='#32770' title='Run Macro' /&gt;&lt;ctrl name='Macro Name:' role='combo box' /&gt;&lt;ctrl name='Macro Name:' role='editable text' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="882bc6972dcce1c62b234f403fc67c42" Selector="&lt;wnd app='msaccess.exe' cls='#32770' title='Run Macro' /&gt;&lt;wnd ctrlid='1' title='OK' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
           </Sequence>
         </ActivityAction>
       </ui:WindowScope.Body>
